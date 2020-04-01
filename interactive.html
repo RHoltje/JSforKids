@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript Animation</title>
+</head>
+<body>
+
+	<h1 id = "heading">Moving Heading</h1>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+
+		/* var counter = 5;
+
+		
+		var printMessage = function() {
+			console.log("You have been staring at your console for " + counter + " seconds");
+			counter+=5;
+		};
+
+		var intervalId = setInterval(printMessage, 5000);
+ */
+		var leftOffset = 0;
+
+		var moveHeading = function() {
+
+			$("#heading").offset({ left: leftOffset});
+
+			leftOffset++;
+
+			if (leftOffset > 500) {
+				leftOffset = 0;
+			}
+		};
+
+		setInterval(moveHeading, 10);
+		
+	</script>
+</body>
+</html>

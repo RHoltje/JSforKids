@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<title>setInterval border</title>
+</head>
+<body>
+	
+	<h2 id = "heading">moving in a square</h2>
+
+	<script>
+
+		/* top side topOffset 0, leftOffset 0 to 500 */
+		/* right side topOffset 0 to 500, leftOffset 500 */
+		/* bottom side topOffset 0, leftOffset 500 to 0 */
+		/* left side topOffset 500 to 0, leftOffset 0 */
+
+			
+
+		var leftOffset = 0;
+		var topOffset = 0;
+
+		var moveHeading = function() {
+			$("#heading").offset({ top :topOffset, left:leftOffset });
+			
+
+			if(topOffset < 500 && leftOffset ===0) {
+				topOffset++;
+			}
+			if(topOffset===500 && leftOffset ===0) {
+				leftOffset++;
+			}
+			if(topOffset===500 && (500 > leftOffset > 0)) {
+				leftOffset++;
+			}
+			if(topOffset === 500 && leftOffset === 500) {
+				topOffset--;
+			}
+			if(topOffset < 500 && leftOffset === 500) {
+				topOffset--;
+			}
+			if(topOffset === 0 && leftOffset === 500) {
+				leftOffset--;
+			}
+			if(topOffset === 0 && (500 > leftOffset >0)) {
+				leftOffset--;
+			}
+
+		};
+
+		setInterval(moveHeading, 10);
+
+	</script>
+</body>
+</html>

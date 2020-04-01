@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Playing with the DOM</title>
+</head>
+<body>
+	<h1 id = "main-heading">Hello out there!</h1>
+
+	<h2>this should fade out and then fade back in</h2>
+
+	<h3>hopefully will slide up and slide down</h3>
+
+	<h4>i wonder what fadeto does?</h4>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<script>
+		/* -------vanilla javascript
+		 var headingElement = document.getElementById("main-heading");
+		console.log(headingElement.innerHTML);
+		var newHeadingText = prompt("provide a new heading:");
+		headingElement.innerHTML = newHeadin gText;*/
+
+		/*------jquery----*/
+		/* var newHeadingText = prompt("Please provide a new heading: ");
+		$("#main-heading").text(newHeadingText); 
+		$("h1").fadeOut(10000);
+		$("body").append("<p>This is a new paragraph</p>");
+		 for (var i = 0; i< 3; i++) {
+			var hobby = prompt("Tell me one of your hobbies!");
+			$("body").append("<p>" + hobby + "</p");
+		} */
+		for(var j= 0;j<=5;j++){
+			var time = j * 1000;
+			$("h2").fadeOut(time);
+			$("h2").fadeIn(time);
+		}
+		$("h1").fadeOut(5000).delay(5000).fadeIn(5000).delay(5000).fadeOut(5000);
+		/*for(var k = 0; k<5; k++){
+			$("h3").slideUp(1000).slideDown(1000);
+		}*/
+
+		$("h4").fadeTo(2000, 0.3);
+	</script>
+</body>
+</html>

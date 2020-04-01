@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Must Learn JavaScript</title>
+  </head>
+  <body>
+    <h1>Gotta Learn Javascript!</h1>
+    <p>My learning saga continues.</p>
+
+    <script>
+      var message = "I am embedded!";
+      console.log(message);
+	  var name = "Senor TacoBell";
+	  console.log("Hello "+ name);
+	  if (name.length > 7) {
+		  console.log("Wow your name is REALLY long!");
+	  } else {
+		  console.log("your name isn't long");
+	  }
+	  if (name === "Senor TacoBell") {
+		  console.log("Hiya " + name + "!");
+	  } else {
+		  console.log("Howdy stranger.");
+	  }
+
+	  var sheepCounted = 0;
+	  while(sheepCounted < 10) {
+		  console.log(sheepCounted + " sheep");
+		  sheepCounted += 1;
+	  }
+	  console.log("Zzzzzzz");
+
+	  var totalChickens = 8;
+	  for(var chickensCounted=0; chickensCounted <totalChickens; chickensCounted++ ) {console.log("cluck " + chickensCounted);}
+	  console.log("cock-a-doodle");
+
+	  for (var i = 0; i < name.length; i++) {
+		  console.log("Number " + i + " is " + name[i]);
+	  }
+
+	  for (var j = 3; j < 10000; j *=3) {
+		  console.log(j);
+	  }
+	  
+	  var b = 3;
+	  while(b<100)
+	  {
+		  console.log(b);
+		  b = b * 3;
+	  }
+
+	  var animals = ["cat", "fish", "lemur", "komodo dragon"]
+	  for(i=0; i < animals.length; i++) {
+		  animals[i] = "Awesome " + animals[i];
+	  }
+	  console.log(animals);
+
+	  var alphabet = "abcdefghijklmnopqrstuvwzyz";
+	  
+	  
+	  var randomWord = "";
+
+	  for(i=0; i < 5; i++) {
+		var randomLetterIndex = Math.floor(Math.random() * alphabet.length);
+		var randomLetter = alphabet[randomLetterIndex];
+		console.log(randomLetterIndex);
+	  	console.log(randomLetter);
+		randomWord = randomWord + randomLetter;
+	  }
+	  console.log(randomWord);
+
+	  var inputString = "javascript is the devil";
+	  var outputString = "";
+
+	  for(i=0; i < inputString.length; i++) {
+
+		if(inputString[i]==="a"){
+			outputString = outputString + "4";
+		} else if(inputString[i]==="e") {
+			outputString= outputString + "3";
+		} else if(inputString[i]== "i") {
+			outputString = outputString + "1";
+		} else {
+			outputString = outputString + inputString[i];
+		}
+
+	  }
+
+	  console.log(outputString);
+    </script>
+  </body>
+</html>

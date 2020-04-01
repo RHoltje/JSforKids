@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>hangman in javascript</title>
+	</head>
+	<body>
+		<h2>Hangman in Javascript</h2>
+		
+		<p>the wrong answer counter doesn't work yet.  </p>
+		<script>
+			/* var name = prompt("What's your name?")
+			console.log("Hello "+ name);
+
+			var likesCats = confirm("Do you like cats?");
+			if (likesCats) {
+				console.log("you're cool");
+			} else {
+				console.log("i like you anyway");
+			} */
+
+			var wordArray = ["chicken", "pig", "cow", "sheep", "ostrich"];
+			console.log(wordArray);
+			
+			var randomWord = wordArray[ Math.floor(Math.random() * wordArray.length)];
+			
+			console.log(randomWord);
+			
+			var answerArray = [];
+			for (var i = 0; i < randomWord.length; i++) {
+				answerArray[i] = "-"
+			}
+			
+			var remainingLetters = randomWord.length;
+			var wrong = 0;
+			console.log("remainingLetters "+ remainingLetters + "  wrong "+ wrong);
+
+			while(remainingLetters > 0 && wrong <=3) {
+				console.log("in while loop");
+				alert(answerArray.join(""));
+				console.log("Value of remainingLetters is " + remainingLetters);
+				console.log("Value of wrong is " + wrong);
+				var playerGuess = prompt("guess a letter");	
+
+					if(playerGuess === null){
+						console.log("if playerGuess === null");
+						break;
+					} else if (playerGuess.length !=1){
+						console.log("playerGuess.length != 1 ");
+						alert("only pick one letter at a time");
+					} else {
+						console.log("inside else, playerGuess valid");
+						for(j=0; j<randomWord.length; j++) 
+						{
+							console.log("inside for loop that checks valid playerGuess against letters in randomWord");
+
+							if(randomWord[j] === playerGuess.toLowerCase()){
+							answerArray[j] = playerGuess;
+							remainingLetters--;
+							console.log("playerGuess right");
+						
+							/*}  else {
+								wrong++;
+								console.log("playerGuess wrong");
+								console.log("remainingLetters " + remainingLetters + "  wrong value " + wrong);
+								 */
+							}
+					
+
+						}
+						/*bug! only works once*/
+						if(remainingLetters === randomWord.length){
+							wrong++;
+							console.log("the value of wrong is " + wrong);
+						}
+					}
+			}
+
+			if (remainingLetters = 0){
+				alert("you got it! the answer was "+ randomWord);
+			}else{			
+				alert("you ran out of guesses...sorry");
+			}
+			
+		</script>
+	</body>
+</html>
