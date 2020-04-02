@@ -12,6 +12,21 @@
 	<img id="map" width=400 height=400 alt="child like treasure map" src="http://nostarch.com/images/treasuremap.png">
 
 	<h4 id="distance">how close click is</h4>
-	<script></script>
+	<script>
+		/*treasure location*/
+		var width = 400;
+		var height = 400;
+		var getRandomNumber = function (size) {
+			return Math.floor(Math.random() * size);
+		}
+		
+		var treasureLocation = {
+			x: getRandomNumber(width),
+			y: getRandomNumber(height),
+		};
+		
+		console.log(treasureLocation);
+
+	</script>
 </body>
 </html>
