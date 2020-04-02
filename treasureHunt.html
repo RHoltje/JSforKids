@@ -16,6 +16,8 @@
 		/*treasure location*/
 		var width = 400;
 		var height = 400;
+		var clickCounter = 0;
+
 		var getRandomNumber = function (size) {
 			return Math.floor(Math.random() * size);
 		}
@@ -26,6 +28,53 @@
 		};
 		
 		console.log(treasureLocation);
+
+		/*measure distance between click and treasureLocation*/
+		/*pythagorean formula c^2 = a^2 * b^2, c= squareroot(a^2*b^2)*/
+		var getDistance = function(event, treasureLocation){
+			diffX = event.offsetX - treasureLocation.x;
+			diffY = event.offsetY - treasureLocation.y;
+			return Math.sqrt((diffX * diffX) + (diffY*diffY));
+		};
+
+		/* use distance to give user a hint */
+		var getDistanceHint = function(distance) {
+			if (distance < 10) {
+				return "You're on fire!";
+			} else if (distance <20) {
+				return "Really hot";
+			} else if (distance < 40) {
+				return "Hot";
+			} else if (distance < 80) {
+				return "Warm";
+			} else if (distance < 160) {
+				return "Cold";
+			} else if (distance < 320) {
+				return "Really cold";
+			} else {
+				return "Freezing";
+			}
+		};
+
+		/*click handler*/
+		$("#map").click(function(event) {
+			
+			clickCounter++;
+			console.log("clickCounter = " + clickCounter);	
+
+			var distance = getDistance(event, treasureLocation);
+			console.log(distance);
+
+			var distanceHint = getDistanceHint(distance);
+			console.log(distanceHint);
+
+			$("#distance").text(distanceHint);
+
+			if(distance < 8) {
+				alert("Found the treasure in " + clickCounter + " clicks!");
+			}
+		});
+
 
 	</script>
 </body>
