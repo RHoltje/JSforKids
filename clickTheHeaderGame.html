@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<title>Click to Stop Header</title>
+	<title>Click the Header Game</title>
 </head>
 <body>
 	
@@ -15,6 +15,8 @@
 		
 		var leftOffset = 0;
 		var topOffset = 0;
+		var clickCounter = 0;
+		var headingSpeed = 30;
 
 		var moveHeading = function() {
 			$("#heading").offset({ top :topOffset, left:leftOffset });
@@ -56,11 +58,27 @@
 
 		};
 
-		var moving = setInterval(moveHeading, 30);
+		var moving = setInterval(moveHeading, headingSpeed);
+		
+		var clickHandler = function(event) {
+			
+			clearInterval(moving);
 
-		$("#heading").click(function(){
-			clearInterval(moving)
-			});
+			headingSpeed = headingSpeed/2;
+			clickCounter = clickCounter +1;
+
+			console.log("clickCounter = " + clickCounter);
+
+			console.log("headingSpeed = " + headingSpeed);
+
+			if (clickCounter === 3) {
+				$("#heading").text("You Win!");
+			};
+
+			setInterval(moveHeading, headingSpeed);
+		}
+		
+		$("#heading").click(clickHandler);
 
 	</script>
 </body>
