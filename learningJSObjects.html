@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript Objects</title>
+	<style>
+		html {
+		background-color: grey;
+		}
+	</style>
+</head>
+<body>
+	
+	<script>
+		var speak = function() {
+			console.log(this.sound + "! My name is " + this.name + "!");
+		}
+
+		var cat = {
+			sound: "Meow",
+			name: "Mittens",
+			speak: speak,
+		};
+
+		var pig = {
+			sound: "Oink",
+			name: "Wilbur",
+			speak: speak,
+		}
+
+		var horse = {
+			sound: "Neigh",
+			name: "Marie",
+			speak: speak,
+		}
+
+		pig.speak();
+		cat.speak();
+		horse.speak();
+
+	</script>
+</body>
+</html>

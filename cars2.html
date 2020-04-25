@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<title>car game</title>
+</head>
+<body>
+	<style>
+		html {
+			background-color :pink;
+		}
+	</style>
+	<script>
+		var Car = function (x,y) {
+			this.x = x;
+			this.y = y;
+		};
+
+		Car.prototype.draw = function () {
+			var carHtml = '<img src="http://nostarch.com/images/car.png">';
+
+			this.carElement = $(carHtml);
+
+			this.carElement.css({
+				position: "absolute",
+				left: this.x,
+				top: this.y,
+			});
+
+			$("body").append(this.carElement);
+		};
+
+		Car.prototype.moveRight = function() {
+			this.x += 5;
+
+			this.carElement.css({
+				left: this.x,
+				top: this.y,
+			});
+		};
+
+		var tesla = new Car(20,20);
+		var nissan = new Car(100, 200);
+
+		tesla.draw();
+		nissan.draw();
+		/* trying to use setInterval to move the tesla Car across the screen, but code below doesnt work, get error: Uncaught TypeError: Cannot read property 'css' of undefined
+    at Car.moveRight (cars2.html:38)
+Car.moveRight @ cars2.html:38*/
+		var teslaMove = setInterval(tesla.moveRight, 20);
+	</script>
+</body>
+</html>
