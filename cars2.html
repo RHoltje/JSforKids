@@ -46,10 +46,10 @@
 
 		tesla.draw();
 		nissan.draw();
-		/* trying to use setInterval to move the tesla Car across the screen, but code below doesnt work, get error: Uncaught TypeError: Cannot read property 'css' of undefined
-    at Car.moveRight (cars2.html:38)
-Car.moveRight @ cars2.html:38*/
-		var teslaMove = setInterval(tesla.moveRight, 20);
+
+		/*with help found the answer.  the issue was "binding this" to the tesla.moveRight() function.  The text doesn't talk about this (yet?).  Could be the age of the text or maybe just an editing mistake.*/
+		var teslaMove = setInterval(function(){tesla.moveRight()}, 500);
+
 	</script>
 </body>
 </html>
