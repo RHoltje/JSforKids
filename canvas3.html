@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Circles on Canvas</title>
+
+	<style>
+		html {
+			background-color: rgb(134, 135, 193);
+		}
+	</style>
+
+</head>
+<body>
+	
+	<canvas id="canvas" width="500" height="500"></canvas>
+
+	<script>
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		ctx.lineWidth =2;
+		ctx.strokeStyle = "Green";
+
+		//quarter circle
+		ctx.beginPath();
+		ctx.arc(50, 50, 20, 0, Math.PI / 2, false);
+		ctx.stroke();
+
+		//half circle
+		ctx.beginPath();
+		ctx.arc(100, 50, 20, 0, Math.PI, false);
+		ctx.stroke();
+
+		//full circle
+		ctx.beginPath();
+		ctx.arc(150, 50, 20, 0, Math.PI * 2, false);
+		ctx.stroke();
+
+		//using a function to draw circles
+		var circle = function (x, y, radius) {
+			ctx.beginPath();
+			ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+			ctx.stroke();
+		};
+
+		ctx.lineWidth = 4;
+
+		ctx.strokeStyle = "Red";
+		circle(100, 200, 10);
+
+		ctx.strokeStyle = "Orange";
+		circle(100, 200, 20);
+
+		ctx.strokeStyle = "Yellow";
+		circle(100, 200, 30);
+
+		ctx.strokeStyle = "Green";
+		circle(100, 200, 40);
+
+		ctx.strokeStyle = "Blue";
+		circle(100, 200, 50);
+		
+		ctx.strokeStyle = "Purple";
+		circle(100, 200, 60);
+
+	</script>
+</body>
+</html>
