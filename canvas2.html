@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>line drawing with canvas</title>
+	<style>
+		html {
+			background-color: #DEB887;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500"></canvas>
+	<script>
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+
+		//borders of rectangle
+		ctx.strokeStyle = "DeepPink";
+		ctx.lineWidth = 4;
+		ctx.strokeRect(10, 10, 100, 20);
+
+		// x marks the spot
+		ctx.strokeStyle = "Turquoise";
+		ctx.beginPath();
+		ctx.moveTo(40,40);
+		ctx.lineTo(100,100);
+		ctx.moveTo(100,40);
+		ctx.lineTo(40,100);
+		ctx.stroke();
+
+		//stickman
+		ctx.strokeStyle = "Chocolate";
+		//head
+		ctx.strokeRect(200, 200, 20, 20);
+		//body
+		ctx.beginPath();
+		ctx.moveTo(210, 220);
+		ctx.lineTo(210, 280);
+		//arms
+		ctx.moveTo(185, 235);
+		ctx.lineTo(210, 240);
+		ctx.lineTo(235, 235);
+		//legs
+		ctx.moveTo(180, 320);
+		ctx.lineTo(210, 280);
+		ctx.lineTo(240, 320);
+		ctx.stroke();
+
+		//house
+		ctx.fillStyle = "SkyBlue";
+		ctx.beginPath();
+		ctx.moveTo(100, 200);
+		ctx.lineTo(100, 160);
+		ctx.lineTo(130, 130);
+		ctx.lineTo(160, 160);
+		ctx.lineTo(160, 200);
+		ctx.lineTo(100, 200);
+		ctx.fill();
+		
+
+
+	</script>
+</body>
+</html>
