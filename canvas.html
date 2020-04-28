@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Playing with Canvas</title>
+	<style> 
+	html {
+		background-color: lightgreen;
+	}</style>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500"></canvas>
+
+	<script>
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		for (var i=0; i< 8; i++) {
+		ctx.fillRect(i*10, i * 10, 10, 10);
+		}
+		//head
+		ctx.fillStyle = "Red";
+		ctx.fillRect(150, 50, 50, 50);
+		//body
+		ctx.fillStyle = "Blue";
+		ctx.fillRect(130, 120, 90, 90);
+		
+		//neck
+		ctx.fillStyle = "Chocolate";
+		ctx.fillRect(170, 100, 10, 20);
+		//arms
+		ctx.fillRect( 80, 120, 200, 10);
+		//left leg
+		ctx.fillRect(130, 210, 10, 80);
+		ctx.fillRect(210, 210, 10, 80);
+	</script>
+</body>
+</html>
