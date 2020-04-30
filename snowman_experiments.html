@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Snowman Experiments</title>
+
+	<style>
+		html {
+			background-color:khaki;
+		}
+		#canvas {
+			border: 1px dotted;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500"></canvas>
+
+	<script>
+	var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		ctx.lineWidth =2;
+
+		//using a function to draw circles
+		var circle = function (x, y, radius) {
+			ctx.beginPath();
+			ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+			ctx.stroke();
+		};
+
+		var drawSnowman = function (x,y,bodyRadius) {
+			//var bodyRadius = 30;
+			var headRadius = 0.7 * bodyRadius;
+			var combinedRadius = bodyRadius + headRadius;
+			var headY = y - combinedRadius;
+			var eyeYdistance = 0.5 * headRadius;
+			var eyeXdistance = 0.25 * headRadius;
+			var buttonYdistance = 0.5 * bodyRadius;
+			var smileRadius = 0.6 * headRadius;
+
+			ctx.fillStyle = "Snow";
+			//body
+			circle(x, y, bodyRadius);
+			ctx.fill();
+			//head
+			circle(x,headY, headRadius);
+			ctx.fill();
+
+			//eyes
+			ctx.fillStyle = "Black";
+			circle(x+eyeXdistance,headY-eyeYdistance, 3);
+			ctx.fill();
+			circle(x-eyeXdistance,headY-eyeYdistance, 3);
+			ctx.fill();
+
+			//nose
+			ctx.fillStyle = "Orange";
+			circle(x,headY, 4);
+			ctx.fill();
+
+			//smile
+			ctx.lineWidth = 1;
+			ctx.strokeStyle = "Black";
+			ctx.beginPath();
+			ctx.arc(x,headY, smileRadius, 0.2*Math.PI, 0.8*Math.PI, false);
+		ctx.stroke();
+
+			//buttons
+			ctx.fillStyle = "Black";
+			circle(x, y, 4);
+			ctx.fill();
+			circle(x, y+buttonYdistance, 4);
+			ctx.fill();
+			circle(x, y-buttonYdistance, 4);
+			ctx.fill();
+			
+
+		};
+		drawSnowman(100, 100, 50);
+		drawSnowman(250, 250, 20);
+		drawSnowman(400, 400, 35);
+	</script>
+</body>
+</html>
